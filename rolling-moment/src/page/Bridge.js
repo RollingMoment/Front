@@ -6,8 +6,9 @@ function Bridge() {
     // 초기 개발 상태, 추후 변경 가능성 존재
     const handleDeepLink = () => {
         const randomText = Math.random().toString(36).substring(2,13);
+        const schemeUrl = "rollingmoment://invite?inviteCode="+randomText;
 
-        window.location.replace("rollingmoment://invite?inviteCode="+randomText);
+        window.location.replace(schemeUrl);
 
         // if (isIOS) {
         //   // 기기가 ios인 경우 - 앱스토어 호출
@@ -16,8 +17,7 @@ function Bridge() {
         // } else {
         //   // 윈도우 데스크탑 등인 경우 - ?
         // }
-      };
-
+    }
 
   return (
     <div className="App">
