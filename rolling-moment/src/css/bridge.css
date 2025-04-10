@@ -1,0 +1,12 @@
+/* 01_모먼트_브릿지페이지 */
+.bridge {
+    text-align: center;
+    /* position: relative; */
+    position: fixed;
+    display: flex;
+    margin: auto;
+    width: 375px;
+    height: 812px;
+    
+    background: #FFFFFF;
+}

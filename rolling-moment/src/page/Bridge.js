@@ -52,16 +52,16 @@ function Bridge() {
 
 
     return (
-        <div className="App">
+        <div className="bridge">
             {/* 버튼 클릭 X, 링크 접속 시 알아서 보내도록 수정 필요, 어려운 경우 버튼에 (모먼트 보러 가기) 등 입력하여 사용 */}
             <h1>Rollin'Moment</h1>
 
-            <img src={logo} alt='로고 이미지' style={{width: "200px", height: "200px"}} />
+            <img className='bridge_logo' src={logo} alt='로고 이미지' />
             <p>~ 모먼트에 함께하러 가는 중 ~</p>
 
             <p style={{color: "GrayText"}}> 앱이 실행되지 않는 경우, 아래 버튼을 눌러 이동해주세요.</p>
 
-            <button id='joinBtn' className='btn' style={{backgroundColor: "cornflowerblue"}} onClick={handleDeferedDeeplink}>모먼트에 함께하기</button>
+            <button id='joinBtn' className='app_btn' onClick={handleDeferedDeeplink}>모먼트에 함께하기</button>
         </div>
 
 
