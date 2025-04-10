@@ -13,7 +13,7 @@ const Router = () => {
                 {/* 잘못된 이동인 경우 */}
                 <Route path={"/*"} element={<UnknownRoute />} />
             </Routes>
-      </BrowserRouter>
+        </BrowserRouter>
     );
 }
 

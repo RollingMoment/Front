@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #111;
+    min-width: 344px;
+  }
+
+  .withdraw-wrapper {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 20px;
+  }
+
+  .withdraw-container {
+    width: 100%;
+    max-width: 500px;
+    padding-top: 80px;
+  }
+
+  .withdraw-header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 500px;        
+    margin: 0 auto;
+    padding: 20px 16px;
+    background-color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    z-index: 10;
+    border-bottom: 1px solid #eee;
+  }
+
+  .withdraw-header-inner {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .withdraw-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .withdraw-subtext {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.4;
+    margin-bottom: 30px;
+  }
+
+  .withdraw-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .withdraw-input {
+    width: 100%;
+    padding: 14px 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .withdraw-input::placeholder {
+    color: #ccc;
+  }
+
+  .withdraw-button {
+    padding: 14px;
+    width: 100%;
+    background-color: #eee;
+    color: #999;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: not-allowed; 
+  }
+
+
+  @media screen and (min-width: 1024px) {
+    .withdraw-wrapper {
+      padding: 0;
+    }
+  }

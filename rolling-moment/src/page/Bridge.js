@@ -1,16 +1,18 @@
-import '../App.css';
-import logo from '../img/test-img.jpg';
+import '../css/Bridge.css';
+import logo from '../img/logo.png';
+import textLogo from "../img/text_logo.png";
 import '../url-scheme-caller.js';
 import { useEffect } from 'react';
 
 function Bridge() {
     const location = window.location;
     const inviteCode = location.search.split("=")[1];
+    const clipboardStr = "rollinmoment/invite=" + inviteCode;
 
     // TODO :: store 출시 후 스토어링크 변경
     const handleDeferedDeeplink = () => {
         const schemeUrl = "rollingmoment://invite?inviteCode="+inviteCode;
-        navigator.clipboard.writeText(inviteCode);
+        navigator.clipboard.writeText(clipboardStr);
             
         const userAgent = navigator.userAgent;
         const visitedAt = (new Date()).getTime(); // 방문 시간
@@ -40,28 +42,33 @@ function Bridge() {
                     location.href = schemeUrl;
                 }, 0);
             } else {
-                // window.alert("웹 페이지에서는 이동할 수 없습니다.");
+                window.alert("웹 페이지에서는 이동할 수 없습니다.");
             }
         });
     }
 
     useEffect(() => {
         handleDeferedDeeplink();
-    }, [location]);
-
+    }, [inviteCode]);
 
 
     return (
-        <div className="App">
-            {/* 버튼 클릭 X, 링크 접속 시 알아서 보내도록 수정 필요, 어려운 경우 버튼에 (모먼트 보러 가기) 등 입력하여 사용 */}
-            <h1>Rollin'Moment</h1>
+        <div className='container'>
+            <div className='text-logo'>
+                <img src={textLogo} alt="Rollin'Moment" className='logo-image' />
+            </div>
 
-            <img src={logo} alt='로고 이미지' style={{width: "200px", height: "200px"}} />
-            <p>~ 모먼트에 함께하러 가는 중 ~</p>
+            <div className="progress-label">롤링모먼트로 이동중입니다..</div>
+            
+            <div className="progress-bar">
+                <div className="progress-fill"></div>
+            </div>
 
-            <p style={{color: "GrayText"}}> 앱이 실행되지 않는 경우, 아래 버튼을 눌러 이동해주세요.</p>
+            <div className="character">
+                <img src={logo} alt="롤링모먼트 캐릭터" className="character-image" />
+            </div>
 
-            <button id='joinBtn' className='btn' style={{backgroundColor: "cornflowerblue"}} onClick={handleDeferedDeeplink}>모먼트에 함께하기</button>
+            <button id='joinBtn' className='button' onClick={handleDeferedDeeplink}>버튼을 눌러 이동하기</button>
         </div>
 
 

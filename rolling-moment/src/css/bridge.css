@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 20px;
+  margin-top: -160px; /* offset을 상단으로 밀어주는 효과 */
+}
+
+.logo-image {
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.progress-label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  width: 160px;
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  margin: 0 auto 20px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  background-color: #7649ff;
+  border-radius: 3px;
+  animation: progressSlide 2s ease-in-out infinite;
+}
+
+@keyframes progressSlide {
+  0% {
+    left: 0%;
+  }
+  50% {
+    left: 80%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+.button {
+  background-color: #8d4dfc;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.character {
+  margin: 20px 0;
+}
+
+.character-image {
+  width: 100px;
+  height: auto; /* 비율 유지 */
+  max-width: 80vw; /* 모바일 대응: 화면 너비의 80%까지 축소 가능 */
+  display: block;
+  margin: 0 auto;
+}
+
+.button:hover {
+  background-color: #7b3ff1;
+}
+
+/* 화면이 넓을 때 (예: 아이패드 이상) */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1000px; /* 화면이 클 땐 조금 더 넓게 */
+  }
+}
