@@ -1,11 +1,9 @@
 import './App.css';
-import Bridge from './page/Bridge';
+import Router from './router';
 
 function App() {
   return (
-    <div className="App">
-      <Bridge />
-    </div>
+    <Router />
   );
 }
 

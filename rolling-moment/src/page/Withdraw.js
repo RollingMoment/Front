@@ -1,16 +1,14 @@
 import '../App.css';
 import logo from '../img/test-img.jpg';
 import '../url-scheme-caller.js';
-import { useEffect } from 'react';
 
-function Bridge() {
-    const location = window.location;
-    const inviteCode = location.search.split("=")[1];
-
-    // TODO :: store 출시 후 스토어링크 변경
+function Withdraw() {
     const handleDeferedDeeplink = () => {
-        const schemeUrl = "rollingmoment://invite?inviteCode="+inviteCode;
-        navigator.clipboard.writeText(inviteCode);
+        const location = window.location;
+        console.log(location.pathname);
+        const randomText = Math.random().toString(36).substring(2,13);
+        const schemeUrl = "rollingmoment://invite?inviteCode="+randomText;
+        navigator.clipboard.writeText(randomText);
             
         const userAgent = navigator.userAgent;
         const visitedAt = (new Date()).getTime(); // 방문 시간
@@ -18,9 +16,11 @@ function Bridge() {
         window.urlSchemeCaller.call(schemeUrl, () => { 
             if (userAgent.match(/Android/)) {
                 // location.href = "intent://" + schemeUrl + "#Intent; sheme=rollingmoment; action=..; category=..; package=com.android.xxx; end;";
+                // 크롬 이외의 브라우저들
                 setTimeout(   
                 function() {  
                     if ((new Date()).getTime() - visitedAt < 2000) {
+                        // TODO :: 임시로 '카카오톡' 플레이스토어 링크임.. 추후 변경 필요
                         location.href ="https://play.google.com/store/apps/details?id=com.kakao.talk";
                     }     
                 }, 500);  
@@ -32,6 +32,7 @@ function Bridge() {
             } else if (userAgent.match(/iPhone|iPad|iPod/)) {
                 setTimeout(function() {
                     if(new Date().getTime() - visitedAt < 2000) {
+                        // TODO :: 임시로 '캔디스러시사가' 앱스토어 링크임.. 추후 변경 필요
                         location.href = "https://apps.apple.com/kr/app/%EC%BA%94%EB%94%94%ED%81%AC%EB%9F%AC%EC%89%AC%EC%82%AC%EA%B0%80/id553834731";
                     }
                 }, 500);
@@ -39,16 +40,9 @@ function Bridge() {
                 setTimeout(function() {
                     location.href = schemeUrl;
                 }, 0);
-            } else {
-                // window.alert("웹 페이지에서는 이동할 수 없습니다.");
             }
         });
     }
-
-    useEffect(() => {
-        handleDeferedDeeplink();
-    }, [location]);
-
 
 
     return (
@@ -68,4 +62,4 @@ function Bridge() {
     );
 }
 
-export default Bridge;
+export default Withdraw;
