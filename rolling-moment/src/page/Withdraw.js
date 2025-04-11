@@ -32,7 +32,7 @@ function Withdraw() {
             }
     
             fetch(apiUrl, {
-                method: 'PATCH',
+                method: 'DELETE',
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -42,6 +42,7 @@ function Withdraw() {
                     return res.json();
                 }
             }).then(data => {
+                console.log(data);
                 if(data.meta.code === 0) {
                     showAlert("성공적으로 탈퇴했습니다.");
                 } else {

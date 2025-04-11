@@ -2,12 +2,14 @@ import '../css/Bridge.css';
 import logo from '../img/logo.png';
 import textLogo from "../img/text_logo.png";
 import '../url-scheme-caller.js';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Bridge() {
     const location = window.location;
     const inviteCode = location.search.split("=")[1];
     const clipboardStr = "rollinmoment/invite=" + inviteCode;
+
+    const [state, setState] = useState(false);
 
     // TODO :: store 출시 후 스토어링크 변경
     const handleDeferedDeeplink = () => {
@@ -48,8 +50,11 @@ function Bridge() {
     }
 
     useEffect(() => {
-        handleDeferedDeeplink();
-    }, [inviteCode]);
+        setState(true);
+        if(state) {
+            handleDeferedDeeplink();
+        }
+    }, [state]);
 
 
     return (

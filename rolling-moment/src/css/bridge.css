@@ -21,7 +21,7 @@ html, body {
   width: 100%;
   max-width: 400px;
   padding: 0 20px;
-  margin-top: -160px; /* offset을 상단으로 밀어주는 효과 */
+  margin-top: -260px; /* offset을 상단으로 밀어주는 효과 */
 }
 
 .logo-image {
