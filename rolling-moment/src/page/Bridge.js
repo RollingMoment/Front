@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 function Bridge() {
     const location = window.location;
     const inviteCode = location.search.split("=")[1];
-    const clipboardStr = "rollinmoment/invite=" + inviteCode;
+    const clipboardStr = "rollinmoment://invite?momentCode=".concat(inviteCode);
 
     const [state, setState] = useState(false);
 
