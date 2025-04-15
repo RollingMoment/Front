@@ -1,6 +1,8 @@
-export const showAlert = (msg) => {
+export const showAlert = (msg = "") => {
     const alertBox = document.getElementById("customAlert");
-    document.getElementById("alertMessage").innerText = msg;
+    if(msg.replace(" ") !== "") {
+        document.getElementById("alertMessage").innerText = msg;
+    }
     alertBox.classList.remove("hidden");
 }
 

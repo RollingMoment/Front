@@ -3,6 +3,7 @@ import { showAlert, closeAlert } from '../class/AlertUtil.js';
 import '../css/Withdraw.css';
 import '../css/Alert.css';
 import '../url-scheme-caller.js';
+import CustomAlert from './CustomAlert.js';
 
 function Withdraw() {
     const location = window.location;
@@ -97,12 +98,11 @@ function Withdraw() {
                 <button className="withdraw-button" onClick={withdraw} style={{backgroundColor: isBlank() ? '#eee' : '#7649ff', color: isBlank() ? '#999' : 'white'}}>탈퇴하기</button>
             </div>
         </div>
-        <div id="customAlert" className="alert-backdrop hidden">
-            <div className="alert-box">
-                <p id="alertMessage">탈퇴하시겠습니까?</p>
-                <button onClick={closeAlert}>확인</button>
-            </div>
-        </div>
+        <CustomAlert 
+            alertMsg='탈퇴하시겠습니까?'
+            onConfirm={closeAlert}
+            confirmBtnMsg='확인'
+        />
         </>
     );
 }
