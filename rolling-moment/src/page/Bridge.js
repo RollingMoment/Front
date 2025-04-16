@@ -92,9 +92,9 @@ function Bridge() {
     
                 <div className="progress-label">초대받은 모먼트가 있어요!<br/>앱에서 바로 확인해보세요</div>
                 
-                <div className="progress-bar">
+                {/* <div className="progress-bar">
                     <div className="progress-fill"></div>
-                </div>
+                </div> */}
     
                 <div className="character">
                     <img src={logo} alt="롤링모먼트 캐릭터" className="character-image" />
