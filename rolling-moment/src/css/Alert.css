@@ -1,15 +1,13 @@
-/* 알림창 배경 */
 .alert-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* 어두운 반투명 배경 */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
 
-/* 알림창 본체 */
 .alert-box {
   background: #fff;
   border-radius: 16px;
@@ -23,7 +21,6 @@
   gap: 20px;
 }
 
-/* 알림 텍스트 */
 .alert-box p {
   font-size: 16px;
   line-height: 1.5;
@@ -31,8 +28,33 @@
   margin: 0;
 }
 
-/* 확인 버튼 */
-.alert-box button {
+.alert-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+}
+
+.alert-buttons:has(> button:only-child) {
+  justify-content: center;
+}
+
+.alert-buttons > button {
+  flex: 1;
+}
+
+.alert-box button.close {
+  background-color: #eee;
+  color: #333;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.alert-box button.confirm {
   background-color: #333;
   color: #fff;
   padding: 12px 0;
@@ -43,10 +65,14 @@
   transition: background-color 0.2s ease;
 }
 
-.alert-box button:hover {
+.alert-box button.close:hover {
+  background-color: #bbb;
+}
+
+.alert-box button.confirm:hover {
   background-color: #111;
 }
-  
+
 .hidden {
   display: none;
 }

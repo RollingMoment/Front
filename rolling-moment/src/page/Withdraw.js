@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { showAlert, closeAlert } from '../class/AlertUtil.js';
+import { showAlert, showConfirm } from '../utils/AlertUtil.js';
 import '../css/Withdraw.css';
 import '../css/Alert.css';
 import '../url-scheme-caller.js';
-import CustomAlert from './CustomAlert.js';
+import CustomAlert from './component/CustomAlert.js';
+import CustomConfirm from './component/CustomConfirm.js';
 
 function Withdraw() {
     const location = window.location;
@@ -95,14 +96,16 @@ function Withdraw() {
                     onChange={onChangePw}
                 />
 
-                <button className="withdraw-button" onClick={withdraw} style={{backgroundColor: isBlank() ? '#eee' : '#7649ff', color: isBlank() ? '#999' : 'white'}}>탈퇴하기</button>
+                <button className={isBlank() ? "withdraw-button" : "withdraw-button-valid"} onClick={() => showConfirm()}>탈퇴하기</button>
             </div>
         </div>
-        <CustomAlert 
+        <CustomConfirm 
+            smallMsg="탈퇴하면 모든 정보가 사라집니다."
             alertMsg='탈퇴하시겠습니까?'
-            onConfirm={closeAlert}
+            onConfirm={withdraw}
             confirmBtnMsg='확인'
         />
+        <CustomAlert alertMsg="" />
         </>
     );
 }

@@ -1,6 +1,9 @@
 
 
-function CustomAlert({alertMsg = "", smallMsg ="", onConfirm = () => {}, confirmBtnMsg = "", noCancel=true}) {
+function CustomAlert({
+    smallMsg = "",
+    alertMsg = ""
+}) {
     const closeAlert = () => {
         document.getElementById("customAlert").classList.add("hidden");
     }
@@ -12,8 +15,7 @@ function CustomAlert({alertMsg = "", smallMsg ="", onConfirm = () => {}, confirm
                     {smallMsg !== "" ? <p style={{color:"gray", fontSize:"x-small"}}>{smallMsg}</p>: <></>}
                     <p>{alertMsg}</p>
                 </div>
-                <button id="cancelBtn" className={noCancel ? "hidden" : ""} onClick={closeAlert}>취소</button>
-                <button onClick={onConfirm}>{confirmBtnMsg}</button>
+                <button className="confirm" id="confirmBtn" onClick={closeAlert}>닫기</button>
             </div>
         </div>
     )
